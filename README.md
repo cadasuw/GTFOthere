@@ -11,7 +11,7 @@ New Technologies Used: Hiking Project API and Google Map API
 
 
 MVP 
--front page search screen that returns a list of hike results based off a string 
+-front page search screen that returns a list of trail results based off a string using Hiking Project API
 
 Pseudocode
 -user will be able to make call to Hiking Project API that will return trail information for a specific region 
