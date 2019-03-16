@@ -22,13 +22,8 @@ Pseudocode
 
 Breaking it Down 
 
-Front End 
---Ashley and Dan 
-API Hiking 
---Dan and Claudia 
-API Google Maps 
---Sara 
-OAuth 
---Sara 
-Database
---Amanda and Claudia 
+Front End: Ashley and Dan |
+API Hiking: Dan and Claudia | 
+API Google Maps: Sara |
+OAuth:Sara |
+Database: Amanda and Claudia |
