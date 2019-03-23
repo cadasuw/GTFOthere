@@ -1,0 +1,33 @@
+import React, { Component } from 'react';
+import './App.css';
+
+import GoogleLogin from 'react-google-login';
+
+class App extends Component {
+
+  render() {
+
+    const responseGoogle = (response) => {
+      console.log(response);
+      console.log("SARA: " + response.profileObj.givenName);
+    }
+
+    return (
+      <div className="App">
+        <h1>LOGIN WITH GOOGLE</h1>
+
+
+      <GoogleLogin
+        clientId="1065744720974-rum7je588fcif793pqvn4b69uov84mid.apps.googleusercontent.com" //CLIENTID 
+        buttonText="LOGIN WITH GOOGLE"
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
+      />
+
+      </div>
+    );
+  }
+}
+
+export default App;
+ 

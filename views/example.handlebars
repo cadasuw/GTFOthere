@@ -1,0 +1,70 @@
+{{!-- <div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Example</h5>
+          <p>
+            <strong>ID</strong>: {{example.id}}</p>
+          <p>
+            <p>
+              <strong>Text</strong>: {{example.text}}</p>
+            <p>
+              <strong>Description:</strong> {{example.description}}</p>
+            <a href="/">← Back To Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> --}} <nav class="navbar navbar-light bg-light" id="navbar">
+  <a class="navbar-brand" id="homeButton" href="/userData">| Home |</a>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search for a Movie" id="search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="submitButton" href="/example">Submit</button>
+  </form>
+</nav>
+
+
+<div class="container" id="resultsContainer">
+
+  <div class="row">
+
+    <div class="col-sm" id="resultsHeader">
+      Results
+    </div>
+  </div>
+  {{#each movies}}
+  <div class="row" id="individualMovies">
+    <div class="col-sm" id="movieResult">
+      <div id="movieDetails">
+        <span id="movieTitle">
+          {{this.title}}
+        </span>
+        <br>
+        <span id="movieRating">
+          Rating: {{this.rating}}
+        </span>
+        <br>
+        <span id="movieImage">
+          <img id="resultImage" src="{{this.poster}}">
+        </span>
+      </div>
+      <div id="buttons">
+        <button class="plan" data-id="{{this.id}}" data-title="{{this.title}}" data-rating="{{this.rating}}"
+          data-description="{{this.description}}" data-release="{{this.release_date}}"
+          data-poster="{{this.poster}}">Plan to Watch</button>
+        <br>
+        <button class="complete" data-id="{{this.id}}" data-id="{{this.id}}" data-title="{{this.title}}"
+          data-rating="{{this.rating}}" data-description="{{this.description}}" data-release="{{this.release_date}}"
+          data-poster="{{this.poster}}">Completed</button>
+        <br>
+        <button class="drop" data-id="{{this.id}}=" data-id="{{this.id}}" data-title="{{this.title}}"
+          data-rating="{{this.rating}}" data-description="{{this.description}}" data-release="{{this.release_date}}"
+          data-poster="{{this.poster}}"> Dropped</button>
+        <br>
+      </div>
+    </div>
+
+  </div>
+  {{/each}}
+</div>
