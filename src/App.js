@@ -4,7 +4,12 @@ import './App.css';
 import Geocode from "react-geocode";
 import axios from "axios";
 
-Geocode.setApiKey("AIzaSyAn5O0hUEyAV1CHW5-x0nNorupO5Mr-_JM");
+
+const TRAIL_API_KEY = process.env.REACT_APP_TRAILS_KEY;
+const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_KEY;
+
+
+Geocode.setApiKey(GOOGLE_API_KEY);
 
 class App extends Component {
 
@@ -15,7 +20,7 @@ class App extends Component {
         res => {
             const { lat, lng } = res.results[0].geometry.location;
             console.log(lat, lng);
-            axios.get("https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon="+ lng + "&maxDistance=50&maxResults=100&sort=distance&key=200431883-69df4d2d08177641033f4b4a848ab12d")
+            axios.get("https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon="+ lng + "&maxDistance=50&maxResults=100&sort=distance&key=" + TRAIL_API_KEY)
             .then((response => 
               console.log(response.data.trails)
             ));

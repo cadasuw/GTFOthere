@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-   <!-- <script
-        async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAn5O0hUEyAV1CHW5-x0nNorupO5Mr-_JM&libraries=geometry,places"></script>-->
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAn5O0hUEyAV1CHW5-x0nNorupO5Mr-_JM"></script>
-</head>
+ </head>
 <body>
 
 <label for="place">Enter location here:</label>
@@ -18,16 +14,11 @@
 <button id = "submit">Search place</button>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-       <!-- <script
-        async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBa6ufIPxMKJr9PUPvjwZKLp_ElXWSGjhA&libraries=geometry,places">-->
-           
-   
+
         </script>
   <script type="text/javascript">
     // Example queryURL for Giphy API
-    //var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC";
-    $(document).ready(function(){
+     $(document).ready(function(){
     var userSearch = "";
 //var lon = -121.7571;
 //var lat = 46.8518;
@@ -52,7 +43,6 @@ if (status == google.maps.GeocoderStatus.OK) {
 
  //console.log( lat + " " + lon);
 
- var queryURL = "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon="+ lon + "&maxDistance=50&maxResults=100&sort=distance&key=200431883-69df4d2d08177641033f4b4a848ab12d";
 
 
 
