@@ -1,18 +1,33 @@
-import React from "react";
+import React, {Component} from "react";
 import Geocode from "react-geocode";
 
+const TRAIL_API_KEY = process.env.REACT_APP_TRAILS_KEY;
+const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_KEY;
+
+
+Geocode.setApiKey(GOOGLE_API_KEY);
 
 
 
 class Search extends Component {
     state = {
-        address: "",
+        address: "Seattle Washington",
         lat: "",
         lon: "",
         trails: []
     };
 
-    
+
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+            address: event.target.value
+        });
+        console.log(this.state.address);
+    };
+
+
+    /*
 
     componentDidMount() {
   
@@ -26,10 +41,17 @@ class Search extends Component {
             }
         );
     }
-
+*/
     render() {
         return(
-            <div></div>
+            <div>
+                <form>
+                    <label for = "place">Pick a place to hike around!</label>
+                    <input id="place" onChange = {this.handleInputChange}>
+                    </input>
+                    <button id = "submit"> Get Out There!!!</button>
+                </form>
+            </div>
         )
     }
 }

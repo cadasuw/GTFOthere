@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Geocode from "react-geocode";
 import axios from "axios";
+import Search from "./components/search.js";
 
 
 const TRAIL_API_KEY = process.env.REACT_APP_TRAILS_KEY;
@@ -48,6 +49,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <Search></Search>
       </div>
     );
   }
