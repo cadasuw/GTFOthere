@@ -26,7 +26,9 @@ class Search extends Component {
         console.log(this.state.address);
     };
 
+handleFormSubmit = event => {
 
+}
     /*
 
     componentDidMount() {
@@ -45,11 +47,11 @@ class Search extends Component {
     render() {
         return(
             <div>
-                <form>
+                <form id = "searching">
                     <label for = "place">Pick a place to hike around!</label>
                     <input id="place" onChange = {this.handleInputChange}>
                     </input>
-                    <button id = "submit"> Get Out There!!!</button>
+                    <button onClick={this.handleFormSubmit}>Get Out There!!!</button>
                 </form>
             </div>
         )
