@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Geocode from "react-geocode";
+import axios from "axios";
 
 const TRAIL_API_KEY = process.env.REACT_APP_TRAILS_KEY;
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_KEY;
@@ -17,6 +18,9 @@ class Search extends Component {
         trails: []
     };
 
+    componentDidMount = () => {
+    
+    }
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -27,7 +31,21 @@ class Search extends Component {
     };
 
 handleFormSubmit = event => {
-
+    event.preventDefault();
+    console.log(this.state.address);
+    Geocode.fromAddress(this.state.address).then(
+        res => {
+            const { lat, lng } = res.results[0].geometry.location;
+            console.log(lat, lng);
+            axios.get("https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon="+ lng + "&maxDistance=50&maxResults=100&sort=distance&key=" + TRAIL_API_KEY)
+            .then((response => 
+              console.log(response.data.trails)
+            ));
+        },
+        error => {
+            console.error(error);
+        }
+    );
 }
     /*
 

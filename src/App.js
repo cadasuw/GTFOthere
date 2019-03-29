@@ -16,7 +16,7 @@ class App extends Component {
 
 
   componentDidMount() {
-
+/*
     Geocode.fromAddress("Seattle Washington").then(
         res => {
             const { lat, lng } = res.results[0].geometry.location;
@@ -30,6 +30,7 @@ class App extends Component {
             console.error(error);
         }
     );
+    */
 }
 
   render() {
