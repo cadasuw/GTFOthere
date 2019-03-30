@@ -68,6 +68,7 @@ class Search extends Component {
                         name = {response.data.trails[i].name}
                         summary={response.data.trails[i].summary}
                         location={response.data.trails[i].location}
+                        length={response.data.trails[i].length}
                         image= {response.data.trails[i].imgSmall}
                         ></Trail>
                         )
