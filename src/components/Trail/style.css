@@ -1,0 +1,15 @@
+body {
+    background-color: blue;
+}
+
+.result {
+    margin: 40px;
+    background-color: green;
+    text-align: center;
+    color: white;
+    
+}
+
+img {
+    float: right;
+}

@@ -6,16 +6,16 @@ import axios from "axios";
 import Search from "./components/search.js";
 
 
-const TRAIL_API_KEY = process.env.REACT_APP_TRAILS_KEY;
-const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_KEY;
+//const TRAIL_API_KEY = process.env.REACT_APP_TRAILS_KEY;
+//const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_KEY;
 
 
-Geocode.setApiKey(GOOGLE_API_KEY);
+//Geocode.setApiKey(GOOGLE_API_KEY);
 
 class App extends Component {
 
 
-  componentDidMount() {
+  //componentDidMount() {
 /*
     Geocode.fromAddress("Seattle Washington").then(
         res => {
@@ -31,7 +31,7 @@ class App extends Component {
         }
     );
     */
-}
+//}
 
   render() {
     return (
