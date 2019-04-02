@@ -3,12 +3,14 @@ import "./style.css";
 import SaveBtn from "../SaveBtn";
 
 
+
 function Trail({ name, num, summary, location, length, image, onClick, latitude, longitude }) {
 
-
+const lat = latitude;
+const lng = longitude;
 
     return (
-        <div className="container" onClick={onClick}>
+        <div className="container" onClick = {onClick}>
             <div className="row">
 
                 <div className="column" id = "image">

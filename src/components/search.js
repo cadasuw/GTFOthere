@@ -3,6 +3,7 @@ import Geocode from "react-geocode";
 import axios from "axios";
 import Trail from "./Trail";
 import "./style.css";
+import Map from "./Map";
 
 const TRAIL_API_KEY = process.env.REACT_APP_TRAILS_KEY;
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_KEY;
@@ -17,7 +18,12 @@ class Search extends Component {
         address: "Seattle Washington",
         latt: "",
         long: "",
-        trailResults: []
+        trailResults: [],
+        modalIsOpen: false,
+        center: {
+            lat: "",
+            lng: ""
+        }
     };
 
     handleInputChange = event => {
@@ -49,50 +55,59 @@ class Search extends Component {
                 }
             );
     }
-    fn = () => {
-        console.log('HELLLLOOo')
+    renderMap = (x, y) => {
+        console.log( x + "      " + y);
+
+        this.setState({
+            center:{
+                lat: x,
+                lng: y
+            }
+        });
+        
     }
     findTrails = () => {
         axios.get("https://www.hikingproject.com/data/get-trails?lat=" + this.state.latt + "&lon=" + this.state.long + "&maxDistance=50&maxResults=100&sort=distance&key=" + TRAIL_API_KEY)
-            
+
             .then(
                 (response => {
-                console.log(response.data.trails[0]);
-                const getThem = [];
-                for(var i = 0; i < response.data.trails.length; i++){
-                    getThem.push(
-                        <Trail
-                        key = {i}
-                        name = {response.data.trails[i].name}
-                        num = {i}
-                        summary={response.data.trails[i].summary}
-                        location={response.data.trails[i].location}
-                        length={response.data.trails[i].length}
-                        image= {response.data.trails[i].imgSmall}
-                        onClick={this.fn}
-                        latitude={response.data.trails[i].latitude}
-                        longitude={response.data.trails[i].longitude}
-                        ></Trail>
+                    console.log(response.data.trails[0]);
+                    const getThem = [];
+                    for (var i = 0; i < response.data.trails.length; i++) {
+                        getThem.push(
+                            {
+                                key: i,
+                                name: response.data.trails[i].name,
+                                num: i,
+                                summary: response.data.trails[i].summary,
+                                location: response.data.trails[i].location,
+                                length: response.data.trails[i].length,
+                                image: response.data.trails[i].imgSmall,
+
+                                latitude: response.data.trails[i].latitude,
+                                longitude: response.data.trails[i].longitude,
+
+
+                            }
                         )
-                }
-                console.log(getThem);
-                this.setState({
-                    trailResults: getThem
-                });
-                console.log(this.state.trailResults);
-            }
+
+                        }
+                        console.log(getThem);
+                        this.setState({
+                            trailResults: getThem
+                        });
+                        console.log(this.state.trailResults);
+                    }
                 )
             )
-            .catch(function(err){
+            .catch(function (err) {
                 console.log(err)
             })
-     
+
     };
 
-    showTrails = () => {
-    
-    }
-  
+
+
     render() {
         return (
             <div>
@@ -102,9 +117,26 @@ class Search extends Component {
                     </input>
                     <button onClick={this.handleFormSubmit}>Get Out There!!!</button>
                 </form>
-  
+
                 <div id="trailList">
-                    {this.state.trailResults}
+                    {this.state.trailResults.map(trail => {
+                        return <Trail
+                        key= {trail.key}
+                        name= {trail.name}
+                        num={trail.num}
+                        summary= {trail.summary}
+                        location= {trail.location}
+                        length= {trail.length}
+                        image={trail.image}
+
+                        latitude= {trail.latitude}
+                        longitude={trail.longitude}
+                            onClick={() => this.renderMap(trail.latitude, trail.longitude)}
+                        
+                        />
+                        
+                    })}
+                    {(this.state.center) ? (<Map center={this.state.center}/>) : (<div><p>OOps!!!!!</p></div>)}
                 </div>
             </div>
 
