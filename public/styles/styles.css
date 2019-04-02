@@ -1,0 +1,78 @@
+.list-group-item {
+  line-height: 2.5;
+}
+
+body {
+  font-family: "Sniglet", cursive;
+  background-image: url("/images/10733.png");
+}
+#navbar {
+  background-color: #c4c4c4 !important;
+  
+}
+.navbar-inner {
+  background:transparent;
+}
+
+#homeButton {
+  font-size: 175%;
+}
+
+
+.welcomeMsg {
+  font-family: "Sniglet:800", cursive;
+  font-size: 250%;
+  color: hotpink;
+  background-color: black;
+}
+
+#resultsContainer {
+  background-color: #c4c4c4;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 20px;
+}
+
+#movieResult {
+  background-color: #e5e5e5;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+#submitButton {
+  color: #e2a403;
+  background-color: #e5e5e5;
+  background-image: none;
+  border-color: #e2a403;
+}
+#submitButton:hover {
+  color: #fff;
+  background-color: #e8bb48;
+  border-color: #e8bb48;
+}
+
+#resultsHeader {
+  font-size: 250%;
+  border-bottom-color: black;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+#buttons {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  justify-content: center;
+  margin: 10px;
+}
+#individualMovies {
+  width: 50%;
+  margin: 20px;
+}
+
+#movieImage {
+  padding-top: 20px;
+}
