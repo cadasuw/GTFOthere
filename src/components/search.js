@@ -70,6 +70,8 @@ class Search extends Component {
                         length={response.data.trails[i].length}
                         image= {response.data.trails[i].imgSmall}
                         onClick={this.fn}
+                        latitude={response.data.trails[i].latitude}
+                        longitude={response.data.trails[i].longitude}
                         ></Trail>
                         )
                 }
