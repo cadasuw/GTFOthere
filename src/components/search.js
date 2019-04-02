@@ -136,7 +136,7 @@ class Search extends Component {
                         />
                         
                     })}
-                    {(this.state.center) ? (<Map center={this.state.center}/>) : (<div><p>OOps!!!!!</p></div>)}
+                    {(this.state.center.lat) ? (<Map center={this.state.center}/>) : (<div><p>OOps!!!!!</p></div>)}
                 </div>
             </div>
 
