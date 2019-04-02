@@ -1,0 +1,19 @@
+#trailList {
+    
+    height: 700px;
+    overflow: scroll;
+}
+
+#searching {
+    font-size: 30px;
+    color: white;
+
+}
+#place {
+    font-size: 24pt;
+    height: 30px;
+
+}
+button {
+    font-size: 30px;
+}

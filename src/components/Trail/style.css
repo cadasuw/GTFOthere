@@ -2,8 +2,22 @@ body {
     background-color: blue;
 }
 
-.result {
-    margin: 40px;
+.column {
+    float: left;
+    width: 30%;
+    padding: 10px;
+    margin: 10px;
+    height: 300px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#result {
+    
     background-color: grey;
     text-align: center;
     color: white;

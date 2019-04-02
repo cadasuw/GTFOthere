@@ -3,19 +3,30 @@ import "./style.css";
 import SaveBtn from "../SaveBtn";
 
 
-function Trail({name, summary, location, length, image }) {
+function Trail({ name, num, summary, location, length, image }) {
     return (
-        <div className = "result">
-        
-        <p>Trail Name: {name}</p>
-        <p>Trail Summary: {summary}</p>
-        <p>Trail Location: {location}</p>
-        <p>Trail Length: {length} Miles</p>
-        <img src = {image} alt = "Trail"></img>
-        <p>
-        <SaveBtn></SaveBtn>
-        </p>
+        <div className="container">
+            <div className="row">
+
+                <div className="column" id = "image">
+                    <img src={image} alt="Trail"></img>
+                </div>
+
+                <div className="column" id="result">
+                    <p>{num + 1}</p>
+                    <p>Trail Name: {name}</p>
+                    <p>Trail Summary: {summary}</p>
+                    <p>Trail Location: {location}</p>
+                    <p>Trail Length: {length} Miles</p>
+                </div>
+
+                <div className="column" id="buttons">
+                    <SaveBtn></SaveBtn>
+                </div>
+
+            </div>
         </div>
+
     );
 }
 

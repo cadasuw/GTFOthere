@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Geocode from "react-geocode";
 import axios from "axios";
 import Trail from "./Trail";
+import "./style.css";
 
 const TRAIL_API_KEY = process.env.REACT_APP_TRAILS_KEY;
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_KEY;
@@ -18,10 +19,6 @@ class Search extends Component {
         long: "",
         trailResults: []
     };
-
-    componentDidMount = () => {
-
-    }
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -54,18 +51,18 @@ class Search extends Component {
     }
 
     findTrails = () => {
-        axios.get("https://www.hikingproject.com/data/get-trails?lat=" + this.state.latt + "&lon=" + this.state.long + "&maxDistance=50&maxResults=10&sort=distance&key=" + TRAIL_API_KEY)
-            //.then(res => res.json())
+        axios.get("https://www.hikingproject.com/data/get-trails?lat=" + this.state.latt + "&lon=" + this.state.long + "&maxDistance=50&maxResults=100&sort=distance&key=" + TRAIL_API_KEY)
+            
             .then(
                 (response => {
                 console.log(response.data.trails[0]);
-                //console.log(response.data.json());
                 const getThem = [];
                 for(var i = 0; i < response.data.trails.length; i++){
                     getThem.push(
                         <Trail
                         key = {i}
                         name = {response.data.trails[i].name}
+                        num = {i}
                         summary={response.data.trails[i].summary}
                         location={response.data.trails[i].location}
                         length={response.data.trails[i].length}
@@ -84,32 +81,13 @@ class Search extends Component {
             .catch(function(err){
                 console.log(err)
             })
-            /*    results => results.json()
-            ).then(
-                data => {
-                    this.setState({ trailResults: data.results})
-                }
-            )*/
+     
     };
 
     showTrails = () => {
-
+        return 
     }
-    /*
-
-    componentDidMount() {
   
-        Geocode.fromAddress("Seattle Washington").then(
-            res => {
-                const { lat, lng } = res.results[0].geometry.location;
-                console.log(lat, lng);
-            },
-            error => {
-                console.error(error);
-            }
-        );
-    }
-*/
     render() {
         return (
             <div>
@@ -120,7 +98,7 @@ class Search extends Component {
                     <button onClick={this.handleFormSubmit}>Get Out There!!!</button>
                 </form>
   
-                <div>
+                <div id="trailList">
                     {this.state.trailResults}
                 </div>
             </div>
