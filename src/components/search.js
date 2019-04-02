@@ -49,7 +49,9 @@ class Search extends Component {
                 }
             );
     }
-
+    fn = () => {
+        console.log('HELLLLOOo')
+    }
     findTrails = () => {
         axios.get("https://www.hikingproject.com/data/get-trails?lat=" + this.state.latt + "&lon=" + this.state.long + "&maxDistance=50&maxResults=100&sort=distance&key=" + TRAIL_API_KEY)
             
@@ -67,6 +69,7 @@ class Search extends Component {
                         location={response.data.trails[i].location}
                         length={response.data.trails[i].length}
                         image= {response.data.trails[i].imgSmall}
+                        onClick={this.fn}
                         ></Trail>
                         )
                 }
@@ -85,7 +88,7 @@ class Search extends Component {
     };
 
     showTrails = () => {
-        return 
+    
     }
   
     render() {

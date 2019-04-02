@@ -6,37 +6,15 @@ import axios from "axios";
 import Search from "./components/search.js";
 
 
-//const TRAIL_API_KEY = process.env.REACT_APP_TRAILS_KEY;
-//const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_KEY;
 
-
-//Geocode.setApiKey(GOOGLE_API_KEY);
 
 class App extends Component {
 
 
-  //componentDidMount() {
-/*
-    Geocode.fromAddress("Seattle Washington").then(
-        res => {
-            const { lat, lng } = res.results[0].geometry.location;
-            console.log(lat, lng);
-            axios.get("https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon="+ lng + "&maxDistance=50&maxResults=100&sort=distance&key=" + TRAIL_API_KEY)
-            .then((response => 
-              console.log(response.data.trails)
-            ));
-        },
-        error => {
-            console.error(error);
-        }
-    );
-    */
-//}
-
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
@@ -49,7 +27,7 @@ class App extends Component {
           >
             Learn React
           </a>
-        </header>
+        </header> */}
         <Search></Search>
       </div>
     );

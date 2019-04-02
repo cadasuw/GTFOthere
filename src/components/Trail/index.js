@@ -3,9 +3,9 @@ import "./style.css";
 import SaveBtn from "../SaveBtn";
 
 
-function Trail({ name, num, summary, location, length, image }) {
+function Trail({ name, num, summary, location, length, image, onClick }) {
     return (
-        <div className="container">
+        <div className="container" onClick={onClick}>
             <div className="row">
 
                 <div className="column" id = "image">
