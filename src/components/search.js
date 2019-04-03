@@ -4,22 +4,24 @@ import axios from "axios";
 import Trail from "./Trail";
 import "./style.css";
 import Map from "./Map";
+import Modal from "./Modal";
 
-const TRAIL_API_KEY = process.env.REACT_APP_TRAILS_KEY;
-const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_KEY;
-
+//const TRAIL_API_KEY = process.env.REACT_APP_TRAILS_KEY;
+//const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_KEY;
+const TRAIL_API_KEY = "200431883-69df4d2d08177641033f4b4a848ab12d";
+const GOOGLE_API_KEY = "AIzaSyAn5O0hUEyAV1CHW5-x0nNorupO5Mr-_JM";
 
 Geocode.setApiKey(GOOGLE_API_KEY);
 
 
 
 class Search extends Component {
+
     state = {
         address: "Seattle Washington",
         latt: "",
         long: "",
         trailResults: [],
-        modalIsOpen: false,
         center: {
             lat: "",
             lng: ""
@@ -55,17 +57,28 @@ class Search extends Component {
                 }
             );
     }
-    renderMap = (x, y) => {
-        console.log( x + "      " + y);
+    renderMap = (trailLat, trailLng) => {
+        console.log( trailLat + "      " + trailLng);
 
         this.setState({
             center:{
-                lat: x,
-                lng: y
+                lat: trailLat,
+                lng: trailLng
             }
-        });
-        
+        });   
+
+        this.toggleModal();  
     }
+
+    toggleModal = () => {
+        console.log("in Toggle Modal: ", this.state.isOpen);
+        this.setState({
+          isOpen: !this.state.isOpen
+          //  isOpen: true
+        });
+        console.log("out Toggle Modal: ", this.state.isOpen);
+    }
+
     findTrails = () => {
         axios.get("https://www.hikingproject.com/data/get-trails?lat=" + this.state.latt + "&lon=" + this.state.long + "&maxDistance=50&maxResults=100&sort=distance&key=" + TRAIL_API_KEY)
 
@@ -107,7 +120,6 @@ class Search extends Component {
     };
 
 
-
     render() {
         return (
             <div>
@@ -131,12 +143,14 @@ class Search extends Component {
 
                         latitude= {trail.latitude}
                         longitude={trail.longitude}
-                            onClick={() => this.renderMap(trail.latitude, trail.longitude)}
-                        
+                        onClick={() => this.renderMap(trail.latitude, trail.longitude)}
+                        //onClick={() => this.toggleModal()}  
                         />
-                        
                     })}
+                    <Modal showModal={this.state.isOpen}>Model Content
                     {(this.state.center.lat) ? (<Map center={this.state.center}/>) : (<div><p>OOps!!!!!</p></div>)}
+                    <button onClick={() => this.toggleModal()}>Close Modal</button>
+                    </Modal>
                 </div>
             </div>
 

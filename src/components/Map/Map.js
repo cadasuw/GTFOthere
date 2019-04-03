@@ -5,10 +5,11 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class SimpleMap extends Component {
  static defaultProps = {
-   zoom: 11
+   zoom: 5
  };
 
  render() {
+  console.log("in map,js: ", this.props.center)
    return (
      // Important! Always set the container height explicitly
      <div style={{ height: '100vh', width: '100%' }}>
@@ -17,11 +18,11 @@ class SimpleMap extends Component {
          defaultCenter={this.props.center}
          defaultZoom={this.props.zoom}
        >
-         {/* <AnyReactComponent
-           lat={59.955413}
-           lng={30.337844}
-           text="My Marker"
-         /> */}
+         { <AnyReactComponent
+           lat={this.props.center.lat}
+           lng={this.props.center.lng}
+           text="Trail Head"
+         /> }
        </GoogleMapReact>
      </div>
    );
