@@ -1,11 +1,10 @@
 const axios = require("axios");
 const db = require("../models");
 console.log("googleController");
-// Defining methods for the googleController
 
-// findAll searches the Google Books API and returns only the entries we haven't already saved
+// findAll verifies that the google token used is valid
 
-// It also makes sure that the books returned from the API all contain a title, author, link, description, and image
+// It also adds the user to the database, if they do not already exist.
 
 module.exports = {
   findAll: function(req, res) {
