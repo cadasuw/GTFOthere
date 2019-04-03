@@ -1,17 +1,65 @@
 import React, { Component } from 'react';
+import API from "./utils/API";
+import {GoogleLogin} from 'react-google-login';
+import {GoogleLogout} from 'react-google-login';
 import './css/style.css';
 
+const googleClientId = "1065744720974-rum7je588fcif793pqvn4b69uov84mid.apps.googleusercontent.com"
+
 class App extends Component {
+
+	state = {
+		id_token: "",
+	};
+ 
+	getToken = idToken => {
+    API.getToken(idToken)
+      .then(res => {
+        localStorage.setItem("JWT_TOKEN", JSON.stringify(res.data));
+      })
+      .catch(err => console.log(err))
+  };
+  
+  responseGoogle = (response) => {
+    console.log("responseGoogle", response);
+    console.log("id_token:", response.tokenObj.id_token)
+    console.log("name:", response.profileObj.givenName)
+    let idToken = response.tokenObj.id_token;
+    this.setState({
+      id_token: response.tokenObj.id_token
+    });
+    this.getToken(idToken);
+  } 
+    
+  
+  logout = (response) => {
+    console.log("logged out");
+    localStorage.removeItem("JWT_TOKEN");
+    this.setState({id_token: ""})
+  }
+
   render() {
     return (
       <div className={"App"}> 
        
-		
+
 <div className="navbar">
           <ul>
             <li className="home"><a href="#">Home</a></li>
 						<li className="signup">
 							<a href="#" data-toggle="modal" data-target="#modal">Sign up</a>
+						</li>
+						<li className="btnGoogle">
+							<GoogleLogin
+        				clientId={googleClientId} 
+						//		buttonText="Sign In"
+								render={renderProps => (
+									<button onClick={renderProps.onClick} disabled={renderProps.disabled}>Sign in</button>
+								)}
+        				onSuccess={this.responseGoogle}
+								onFailure={this.responseGoogle}
+								>                                                                                                                                                                                                                 
+      				</GoogleLogin>
 						</li>
             <li className="Explore"><a href="#">Explore</a><ul>
                 <li><a href="#">About</a></li>

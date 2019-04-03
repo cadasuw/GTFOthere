@@ -41,6 +41,14 @@ header::before {
   background-color: white;
 }
 
+.btnGoogle { 
+  padding: 0;
+  background: transparent, no-repeat;
+  color:orange;
+  border:0px transparent;
+  text-align: center;
+}
+
 
 /* Sub Menus */
 .navbar li li {
