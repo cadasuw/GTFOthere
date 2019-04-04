@@ -41,9 +41,10 @@ header::before {
   background-color: white;
 }
 
-.btnGoogle { 
+.btnGoogle > button { 
   padding: 0;
-  background: transparent, no-repeat;
+  background-color: rgb(252, 252, 238);
+  /* background: transparent, no-repeat; */
   color:orange;
   border:0px transparent;
   text-align: center;
