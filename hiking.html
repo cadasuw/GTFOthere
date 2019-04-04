@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+ </head>
+<body>
+
+<label for="place">Enter location here:</label>
+<input id="place"></input>
+
+<button id = "submit">Search place</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        </script>
+  <script type="text/javascript">
+    // Example queryURL for Giphy API
+     $(document).ready(function(){
+    var userSearch = "";
+//var lon = -121.7571;
+//var lat = 46.8518;
+var lat;
+var lon;
+
+$("#submit").on("click", function(){
+var geocoder = new google.maps.Geocoder();
+var address = "portland oregon";
+address = $("#place").val();
+
+
+
+geocoder.geocode( { 'address': address}, function(results, status) {
+
+if (status == google.maps.GeocoderStatus.OK) {
+   // var latitude = results[0].geometry.location.latitude;
+    //var longitude = results[0].geometry.location.longitude;
+    //alert(latitude);
+    lat = results[0].geometry.location.lat();
+ lon = results[0].geometry.location.lng();
+
+ //console.log( lat + " " + lon);
+
+
+
+
+$.ajax({
+  url: queryURL,
+  method: "GET"
+}).then(function(response) {
+  console.log(response);
+  //console.log(response.data.length);
+});
+
+    } 
+});
+
+console.log( lat + " " + lon);
+//var lon = -122.3289;
+//var lat = 47.6017;
+  
+  /*
+    var queryURL = "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon="+ lon + "&maxDistance=50&maxResults=500&sort=distance&key=200431883-69df4d2d08177641033f4b4a848ab12d";
+
+
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+      //console.log(response.data.length);
+    });
+});*/
+    });
+});
+  </script>
+  
+
+  
+
+</body>
+</html>
