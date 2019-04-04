@@ -9,11 +9,11 @@ class App extends Component {
 		
 <div className="navbar">
           <ul>
-            <li className="home"><a href="#">Home</a></li>
-						<li className="signup">
-							<a href="#" data-toggle="modal" data-target="#modal">Sign up</a>
+            <li className={"home"}><a href="#">Home</a></li>
+						<li className={"signup"}>
+							<a href="#" data-toggle={"modal"} data-target={"#modal"}>Sign up</a>
 						</li>
-            <li className="Explore"><a href="#">Explore</a><ul>
+            <li className={"Explore"}><a href="#">Explore</a><ul>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Profile</a></li>
                 <li><a href="#">Sign Out</a></li></ul>
