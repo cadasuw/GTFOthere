@@ -1,7 +1,7 @@
 {
-  "name": "react-gtfo-hikes",
-  "version": "1.0.0",
-  "description": "",
+  "name": "gtfo-app",
+  "version": "0.1.0",
+  "private": true,
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
