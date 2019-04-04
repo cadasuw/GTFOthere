@@ -25,7 +25,8 @@ class Search extends Component {
         center: {
             lat: "",
             lng: ""
-        }
+        },
+        isOpen: false
     };
 
     handleInputChange = event => {
@@ -78,6 +79,7 @@ class Search extends Component {
         });
         console.log("out Toggle Modal: ", this.state.isOpen);
     }
+
 
     findTrails = () => {
         axios.get("https://www.hikingproject.com/data/get-trails?lat=" + this.state.latt + "&lon=" + this.state.long + "&maxDistance=50&maxResults=100&sort=distance&key=" + TRAIL_API_KEY)
@@ -147,10 +149,16 @@ class Search extends Component {
                         //onClick={() => this.toggleModal()}  
                         />
                     })}
-                    <Modal showModal={this.state.isOpen}>Model Content
-                    {(this.state.center.lat) ? (<Map center={this.state.center}/>) : (<div><p>OOps!!!!!</p></div>)}
-                    <button onClick={() => this.toggleModal()}>Close Modal</button>
-                    </Modal>
+                    <Modal 
+                        showModal={this.state.isOpen}
+                        center={this.state.center}
+                        toggleModal={this.toggleModal}
+                    />
+                    {/* {this.state.center.lat 
+                        ? <Map center={this.state.center}/> 
+                        : <div><p>OOps!!!!!</p></div>} */}
+                    {/* <button onClick={() => this.toggleModal()}>Close Modal</button> */}
+                    {/* </Modal> */}
                 </div>
             </div>
 

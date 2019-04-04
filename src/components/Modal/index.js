@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactModal from 'react-modal';
-
+import Map from '../Map/index.js'
 class Modal extends React.Component {
 
 
@@ -33,8 +33,11 @@ class Modal extends React.Component {
           <ReactModal 
              isOpen={this.props.showModal}
              contentLabel="Minimal Modal Example"
-          >Modal Content from Peter
-            <button onClick={this.closeModal}>Close Modal</button>
+          >
+          {this.props.center.lat 
+            ? <Map center={this.props.center}/> 
+            : <div><p>OOps!!!!!</p></div>}
+            <button onClick={this.props.toggleModal}>Close Modal</button>
           </ReactModal>
         </div>
       );
