@@ -59,23 +59,23 @@ class Search extends Component {
             );
     }
     renderMap = (trailLat, trailLng) => {
-        console.log( trailLat + "      " + trailLng);
+        console.log(trailLat + "      " + trailLng);
 
         this.setState({
-            center:{
+            center: {
                 lat: trailLat,
                 lng: trailLng
             }
-        });   
+        });
 
-        this.toggleModal();  
+        this.toggleModal();
     }
 
     toggleModal = () => {
         console.log("in Toggle Modal: ", this.state.isOpen);
         this.setState({
-          isOpen: !this.state.isOpen
-          //  isOpen: true
+            isOpen: !this.state.isOpen
+            //  isOpen: true
         });
         console.log("out Toggle Modal: ", this.state.isOpen);
     }
@@ -106,13 +106,13 @@ class Search extends Component {
                             }
                         )
 
-                        }
-                        console.log(getThem);
-                        this.setState({
-                            trailResults: getThem
-                        });
-                        console.log(this.state.trailResults);
                     }
+                    console.log(getThem);
+                    this.setState({
+                        trailResults: getThem
+                    });
+                    console.log(this.state.trailResults);
+                }
                 )
             )
             .catch(function (err) {
@@ -126,30 +126,38 @@ class Search extends Component {
         return (
             <div>
                 <form id="searching">
-                    <label for="place">Pick a place to hike around!</label>
-                    <input id="place" onChange={this.handleInputChange}>
-                    </input>
-                    <button onClick={this.handleFormSubmit}>Get Out There!!!</button>
+                    {/*} <label for="place">Pick a place to hike around!</label>
+                    <input id="place" placeholder="GET THE FEET OUT!!!!" onChange={this.handleInputChange}>
+        </input>*/}
+                    <p className={"air-up"}>
+                        <button id={"button1-container"} className={"button1 button-primary-orange-hollow"}>
+                            <input className={"button"} placeholder={"Get The Feet Out!"} onChange={this.handleInputChange} />
+
+                        </button>
+                    </p>
+                    <p>
+                        <button onClick={this.handleFormSubmit}>Go</button>
+                    </p>
                 </form>
 
                 <div id="trailList">
                     {this.state.trailResults.map(trail => {
                         return <Trail
-                        key= {trail.key}
-                        name= {trail.name}
-                        num={trail.num}
-                        summary= {trail.summary}
-                        location= {trail.location}
-                        length= {trail.length}
-                        image={trail.image}
+                            key={trail.key}
+                            name={trail.name}
+                            num={trail.num}
+                            summary={trail.summary}
+                            location={trail.location}
+                            length={trail.length}
+                            image={trail.image}
 
-                        latitude= {trail.latitude}
-                        longitude={trail.longitude}
-                        onClick={() => this.renderMap(trail.latitude, trail.longitude)}
+                            latitude={trail.latitude}
+                            longitude={trail.longitude}
+                            onClick={() => this.renderMap(trail.latitude, trail.longitude)}
                         //onClick={() => this.toggleModal()}  
                         />
                     })}
-                    <Modal 
+                    <Modal
                         showModal={this.state.isOpen}
                         center={this.state.center}
                         toggleModal={this.toggleModal}

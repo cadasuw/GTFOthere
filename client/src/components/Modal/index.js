@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactModal from 'react-modal';
 import Map from '../Map/index.js'
+import "./style.css";
 class Modal extends React.Component {
 
 

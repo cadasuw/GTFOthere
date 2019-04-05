@@ -10,20 +10,19 @@ const lat = latitude;
 const lng = longitude;
 
     return (
-        <div className="container" onClick = {onClick}>
+        <div className="container">
             <div className="row">
 
                 <div className="column" id = "image">
                     <img src={image} alt="Sorry!  Could not find a picture!"></img>
                 </div>
 
-                <div className="column" id="result">
+                <div className="column" id="result" onClick={onClick}>
                     <p>{num + 1}</p>
                     <p>Trail Name: {name}</p>
                     <p>Trail Summary: {summary}</p>
                     <p>Trail Location: {location}</p>
                     <p>Trail Length: {length} Miles</p>
-                    <p>Lat and Lon: {latitude} and {longitude}</p>
                 </div>
 
                 <div className="column" id="buttons">
