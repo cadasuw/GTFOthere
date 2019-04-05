@@ -3,6 +3,7 @@ import API from "./utils/API";
 import {GoogleLogin} from 'react-google-login';
 import {GoogleLogout} from 'react-google-login';
 import './css/style.css';
+import Search from "./components/search.js";
 
 const googleClientId = "1065744720974-rum7je588fcif793pqvn4b69uov84mid.apps.googleusercontent.com"
 
@@ -82,6 +83,7 @@ class App extends Component {
 							<input className={"button"} placeholder={"Get The Feet Out!"} /> 
 								</button>
 							</p>
+							<Search></Search>
 						</div>
 					</div>
 			</div>
