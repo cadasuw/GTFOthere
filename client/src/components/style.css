@@ -1,12 +1,12 @@
 #trailList {
     
     height: 500px;
-    overflow: scroll;
+    overflow: auto;
 }
 
 #searching {
     font-size: 30px;
-    color: rgb(172, 27, 27);
+
 
 }
 #place {
