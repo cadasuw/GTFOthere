@@ -30,6 +30,7 @@ class Search extends Component {
     };
 
     handleInputChange = event => {
+        event.preventDefault();
         const { name, value } = event.target;
         this.setState({
             address: event.target.value
@@ -130,10 +131,10 @@ class Search extends Component {
                     <input id="place" placeholder="GET THE FEET OUT!!!!" onChange={this.handleInputChange}>
         </input>*/}
                     <p className={"air-up"}>
-                        <button id={"button1-container"} className={"button1 button-primary-orange-hollow"}>
+                       {/*} <button id={"button1-container"} className={"button1 button-primary-orange-hollow"}>*/}
                             <input className={"button"} placeholder={"Get The Feet Out!"} onChange={this.handleInputChange} />
 
-                        </button>
+                        {/*</button>*/}
                     </p>
                     <p>
                         <button onClick={this.handleFormSubmit}>Go</button>
