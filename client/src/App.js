@@ -3,6 +3,7 @@ import API from "./utils/API";
 import {GoogleLogin} from 'react-google-login';
 import {GoogleLogout} from 'react-google-login';
 import './css/style.css';
+import Search from "./components/search.js";
 
 const googleClientId = "1065744720974-rum7je588fcif793pqvn4b69uov84mid.apps.googleusercontent.com"
 
@@ -77,11 +78,12 @@ class App extends Component {
 							<header id={"header-container"} className={"middle"}>
 								<h2 className={"orange big text-center"}>GTFO</h2>
 							</header>
-							<p className={"air-up"}>
+							{/* <p className={"air-up"}> */}
 							 <button id={"button1-container"} className={"button1 button-primary-orange-hollow"}>  
 							<input className={"button"} placeholder={"Get The Feet Out!"} /> 
 								</button>
-							</p>
+							{/* </p> */}
+							 {/* <Search></Search>  */}
 						</div>
 					</div>
 			</div>

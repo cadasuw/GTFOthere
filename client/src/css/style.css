@@ -292,17 +292,7 @@ header::before {
     color: #FFF;
     border-color: #f0c446;
   }
-  .button-primary-blue-hollow {
-    background-color: transparent;
-    border-color: #50788C;
-    color: #FFF;
-  }
-  .button-primary-blue-hollow:hover,
-  .button-primary-blue-hollow:focus {
-    background-color: transparent;
-    border-color: #6792a8;
-    color: #FFF;
-  }
+
   .button-primary-orange-hollow {
     background-color: transparent;
     border-color: #ECB517;
@@ -315,18 +305,6 @@ header::before {
     background-color: transparent;
     border-color: #f0c446;
     color: #FFF;
-  }
-  .social-list li:nth-child(4):hover {
-    background-color: #00aced;
-  }
-  .social-list li:nth-child(3):hover {
-    background-color: #007bb5;
-  }
-  .social-list li:nth-child(2):hover {
-    background-color: #3b5998;
-  }
-  .social-list li:nth-child(1):hover {
-    background-color: #125688;
   }
 
   /* line for sign up  */
