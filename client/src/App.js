@@ -82,7 +82,7 @@ class App extends Component {
 								</GoogleLogin>
 							</li> 
 							<li className="Explore"><a href="#">Explore</a><ul>
-								<li><a href="#">About</a></li>
+								<li><a href="/about.html">About</a></li>
 								<li><a href="#">Profile</a></li>
 								<li className="btnGoogle1">
 								<GoogleLogout
