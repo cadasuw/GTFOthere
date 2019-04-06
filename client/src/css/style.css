@@ -48,8 +48,19 @@ header::before {
   color:orange;
   border:0px transparent;
   text-align: center;
+  font-size: 1.1em;
 }
 
+.btnGoogle1 > button { 
+  padding: 0;
+  background-color: rgb(252, 252, 238);
+  /* background: transparent, no-repeat; */
+  color:orange;
+  border:0px transparent;
+  text-align: center;
+  font-size: 1.0em;
+  background-color: #5DBCD2;
+}
 
 /* Sub Menus */
 .navbar li li {

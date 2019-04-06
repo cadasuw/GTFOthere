@@ -20,12 +20,13 @@ class App extends Component {
 
 	state = {
 		id_token: "",
+		isAuthenticated: false
 	};
 
 	getToken = idToken => {
 		API.getToken(idToken)
 			.then(res => {
-				localStorage.setItem("JWT_TOKEN", JSON.stringify(res.data));
+				localStorage.setItem("JWT_TOKEN", JSON.stringify(res.data))
 			})
 			.catch(err => console.log(err))
 	};
@@ -61,8 +62,10 @@ class App extends Component {
 				return (<div> 
 					<div className="navbar">
 						<ul>
+				
 						<li className="home"><a href="#">Home</a></li>
 						<li className="savedHikes"><a href="/savedHikes">Saved Hikes</a></li>
+
 							<li className="signup">
 								<a href="#" data-toggle="modal" data-target="#modal">Sign up</a>
 							</li>
@@ -77,11 +80,20 @@ class App extends Component {
 									onFailure={this.responseGoogle}
 								>
 								</GoogleLogin>
-							</li>
+							</li> 
 							<li className="Explore"><a href="#">Explore</a><ul>
 								<li><a href="#">About</a></li>
 								<li><a href="#">Profile</a></li>
-								<li><a href="#">Sign Out</a></li></ul>
+								<li className="btnGoogle1">
+								<GoogleLogout
+									clientId={googleClientId}
+									render={renderProps => (
+										<button onClick={renderProps.onClick} disabled={renderProps.disabled}>Sign Out</button>
+									)}
+									onSuccess={this.responseGoogle}
+									onFailure={this.responseGoogle}
+								>
+								</GoogleLogout></li></ul>
 							</li>
 						</ul>
 					</div>

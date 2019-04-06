@@ -1,0 +1,14 @@
+.navbar li {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2em;
+    line-height: 40px;
+    text-align: left;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: orange;
+    display: block;
+    padding-left: 15px;
+    transition: .3s background-color;
+  }
