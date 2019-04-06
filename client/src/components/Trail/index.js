@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.css";
-import SaveBtn from "../SaveBtn";
 
 
 
@@ -25,9 +24,9 @@ const lng = longitude;
                     <p>Trail Length: {length} Miles</p>
                 </div>
 
-                <div className="column" id="buttons">
+               {/*  <div className="column" id="buttons">
                     <SaveBtn></SaveBtn>
-                </div>
+                </div> */}
 
             </div>
         </div>

@@ -18,7 +18,7 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/gtfodb",
+  process.env.MONGODB_URI || "mongodb://localhost/gtfodb1",
   {
     useCreateIndex: true,
     useNewUrlParser: true
