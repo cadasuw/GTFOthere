@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.css";
 
-function SaveBtn(){
+function SaveBtn(props){
     return(
-        <button>I'll Do This Trail!!!</button>
+        <button className="save-btn" {...props}>I'll Do This Trail</button>
     )
 }
 
